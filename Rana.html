@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cabeza de Rana con Ojos Redondos y Pupilas Cuadradas</title>
+</head>
+<body>
+	<canvas id="miLienzo"></canvas>
+</body>
+<script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script>
+<script>
+	var codigoDePrograma = function(instanciaProcessing) {
+		with (instanciaProcessing) {
+			size(400, 400);
+
+			// Fondo
+			background(255, 255, 255); // Blanco
+
+			// Cabeza de la rana
+			fill(0, 128, 0); // Verde oscuro para la cabeza
+			noStroke();
+			ellipse(200, 200, 200, 150); // Cabeza principal
+
+			// Ojos redondos
+			fill(255); // Blanco para los ojos
+			stroke(0); // Borde negro para los ojos
+			strokeWeight(2);
+			ellipse(140, 130, 80, 80); // Ojo izquierdo
+			ellipse(260, 130, 80, 80); // Ojo derecho
+
+			// Pupilas cuadradas
+			fill(0); // Negro para las pupilas
+			noStroke();
+			rectMode(CENTER);
+			rect(140, 130, 30, 30); // Pupila izquierda
+			rect(260, 130, 30, 30); // Pupila derecha
+
+			// Nariz
+			fill(0, 128, 0); // Verde oscuro para la nariz
+			ellipse(200, 180, 40, 30); // Nariz
+
+			// Boca abierta
+			noFill();
+			stroke(0); // Negro para la boca
+			strokeWeight(4);
+			beginShape();
+			vertex(160, 240); // Punto inicial
+			bezierVertex(170, 270, 230, 270, 240, 240); // Curva de Bézier
+			endShape();
+		}
+	};
+
+	var canvas = document.getElementById("miLienzo");
+	var instancia = new Processing(canvas, codigoDePrograma);
+</script>
+</html>
+
